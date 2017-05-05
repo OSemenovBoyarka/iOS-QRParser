@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5898A8C2CC0DB81200E94377 /* ParsingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A5C931F685922FFA3958 /* ParsingResult.swift */; };
 		5898AA07E17BCECE7CADB91F /* ParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898AA5C17CECB191A05FED7 /* ParserService.swift */; };
+		5898AAB66DCF24606D0A644A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A2C83CF2C08571BD8210 /* Errors.swift */; };
 		5898ADCB27F3FC54B6D52781 /* ItemParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898AFB5B451330EB6BFBC4A /* ItemParsers.swift */; };
 		5898AE1F38AD6383883C1FDA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898AF342C5836B1C380A0A5 /* Item.swift */; };
 		DB9309581EBCE2480045D8D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9309571EBCE2480045D8D8 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5898A2C83CF2C08571BD8210 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		5898A5C931F685922FFA3958 /* ParsingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingResult.swift; sourceTree = "<group>"; };
 		5898AA5C17CECB191A05FED7 /* ParserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserService.swift; sourceTree = "<group>"; };
 		5898AF342C5836B1C380A0A5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
+		5898AF6966D5235595D3A466 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				5898A2C83CF2C08571BD8210 /* Errors.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		DB93094B1EBCE2480045D8D8 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 				DB9309601EBCE2480045D8D8 /* LaunchScreen.storyboard */,
 				DB9309631EBCE2480045D8D8 /* Info.plist */,
 				5898AE5950D24D4FBD32105F /* Logic */,
+				5898AF6966D5235595D3A466 /* Util */,
 			);
 			path = QRScanner;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 				5898AA07E17BCECE7CADB91F /* ParserService.swift in Sources */,
 				5898A8C2CC0DB81200E94377 /* ParsingResult.swift in Sources */,
 				5898ADCB27F3FC54B6D52781 /* ItemParsers.swift in Sources */,
+				5898AAB66DCF24606D0A644A /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
