@@ -27,6 +27,7 @@ class QRScanViewController: UIViewController {
     fileprivate let greetingText = "Please, point camera on the bill, provided by waiter"
 
     fileprivate var parsedItems: [Item] = []
+    fileprivate var lastScannedObject: AVMetadataMachineReadableCodeObject?
 
 
     override func viewDidLoad() {
@@ -59,17 +60,19 @@ class QRScanViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
-    func willEnterForeground() {
-        if (!captureSessionInitComplete){
-            self.initCaptureSession()
-        }
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         captureSession.stopRunning()
         pauseCodeScanning()
     }
+
+    func willEnterForeground() {
+        if (!captureSessionInitComplete){
+            self.initCaptureSession()
+        }
+        lastScannedObject = nil;
+    }
+
 
     fileprivate func startCodeScanning(){
         captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -122,6 +125,8 @@ class QRScanViewController: UIViewController {
         show(message: greetingText, style: .normal)
         //hide frame
         qrFrameView.frame = CGRect.zero
+        
+        self.lastScannedObject = nil
     }
 
     fileprivate func show(message: String, style: MessageStyle) {
@@ -163,15 +168,19 @@ extension QRScanViewController : AVCaptureMetadataOutputObjectsDelegate {
             return
         }
 
-        // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
 
         if supportedCodeTypes.contains(metadataObj.type)  {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+
+            // Get metadata for visual feedback with user
             let qrObject = videoPreviewView.previewLayer.transformedMetadataObject(for: metadataObj)
             qrFrameView.frame = qrObject!.bounds
 
+
+            //avoid infinite parsing same objects
+            guard metadataObj.stringValue != self.lastScannedObject?.stringValue else { return }
             parserService.parse(code: metadataObj.stringValue)
+            self.lastScannedObject = metadataObj
         }
     }
 }

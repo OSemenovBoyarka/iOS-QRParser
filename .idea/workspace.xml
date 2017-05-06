@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23f1a725-f5a2-48d5-ab65-dd3c4217693d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/QRScanner/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Logic/ParserService.swift" afterPath="$PROJECT_DIR$/QRScanner/Logic/ParserService.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/QRScanViewController.swift" afterPath="$PROJECT_DIR$/QRScanner/QRScanViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Util/Errors.swift" afterPath="$PROJECT_DIR$/QRScanner/Util/Errors.swift" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,14 +11,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_74f57bda1e9ca1ecfbffd37968656d451585a0ed" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos" />
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="QRScanViewController.swift" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/QRScanner/QRScanViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="109" column="12" lean-forward="false" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+            <state relative-caret-position="386">
+              <caret line="179" column="26" lean-forward="false" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="26" />
               <folding>
                 <element signature="e#156#168#0" expanded="true" />
               </folding>
@@ -347,12 +343,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494011864173</updated>
-      <workItem from="1494011865620" duration="33237000" />
+      <workItem from="1494011865620" duration="33966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33237000" />
+    <option name="totallyTimeSpent" value="33966000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -553,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/QRScanner/QRScanViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="109" column="12" lean-forward="false" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+        <state relative-caret-position="386">
+          <caret line="179" column="26" lean-forward="false" selection-start-line="179" selection-start-column="26" selection-end-line="179" selection-end-column="26" />
           <folding>
             <element signature="e#156#168#0" expanded="true" />
           </folding>
