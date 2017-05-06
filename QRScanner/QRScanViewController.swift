@@ -31,7 +31,6 @@ class QRScanViewController: UIViewController {
         super.viewDidLoad()
         initQrFrameView()
         initCaptureSession()
-        //we don't want navigation bar here at all
         navigationController?.setNavigationBarHidden(true, animated: false)
 
         //TODO handle camera permissions
@@ -44,7 +43,15 @@ class QRScanViewController: UIViewController {
         parserService.delegate = self
         startCodeScanning()
         setInitialUIState()
+
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

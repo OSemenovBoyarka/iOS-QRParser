@@ -23,6 +23,8 @@ class BillDetailsTableViewController: UITableViewController {
     }
 
 
+
+
     // MARK: tableview delegate and data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -38,8 +40,21 @@ class BillDetailsTableViewController: UITableViewController {
 
         cell.textLabel!.text = item.name;
 
-        //FIXME handle unknown price and/or quantity
-        cell.detailTextLabel!.text = String(format: "%@ X %@", String(describing: item.quantity!), String(describing: item.price!))
+        let priceStr: String
+        if let price = item.price {
+            priceStr = String(describing: price)
+        } else {
+            priceStr = "??"
+        }
+
+        let quantityStr: String
+        if let quantity = item.quantity {
+            quantityStr = String(describing: quantity)
+        } else {
+            quantityStr = "??"
+        }
+
+        cell.detailTextLabel!.text = String(format: "%@ X %@", quantityStr, priceStr)
 
         return cell
     }
@@ -55,9 +70,5 @@ class BillDetailsTableViewController: UITableViewController {
         return String(format: "Total: %@", String(describing: total))
     }
 
-
-}
-
-extension BillDetailsTableViewController {
 
 }

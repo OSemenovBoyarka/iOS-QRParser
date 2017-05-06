@@ -5,14 +5,10 @@
 
 import Foundation
 
-protocol ItemParser : class {
-    func parse(input: String) throws -> [Item]
-}
-
-class JsonItemParser : ItemParser {
+class JSONItemParser: ItemParser {
     func parse(input: String) throws -> [Item] {
-
         let inputData = input.data(using: String.Encoding.utf8)!
+
         let parsedResult = try JSONSerialization.jsonObject(with: inputData, options: [JSONSerialization.ReadingOptions.allowFragments])
 
         guard let parsedDictionary = parsedResult as? [String : Any] else {

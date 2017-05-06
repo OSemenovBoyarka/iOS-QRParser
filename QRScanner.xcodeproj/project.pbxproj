@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5898A664C7BFCF9C13E69324 /* JSONItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A1A3EF6FE91A183FFB2A /* JSONItemParser.swift */; };
 		5898A8C2CC0DB81200E94377 /* ParsingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A5C931F685922FFA3958 /* ParsingResult.swift */; };
+		5898A8C62AEA707999BE26ED /* ItemParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A0B057D70196555F1576 /* ItemParserProtocol.swift */; };
+		5898A8F2015BAC16031D3E1E /* XMLItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A4D768BC4511434F2C55 /* XMLItemParser.swift */; };
 		5898AA07E17BCECE7CADB91F /* ParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898AA5C17CECB191A05FED7 /* ParserService.swift */; };
 		5898AAB66DCF24606D0A644A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898A2C83CF2C08571BD8210 /* Errors.swift */; };
-		5898ADCB27F3FC54B6D52781 /* ItemParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898AFB5B451330EB6BFBC4A /* ItemParsers.swift */; };
 		5898AE1F38AD6383883C1FDA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898AF342C5836B1C380A0A5 /* Item.swift */; };
 		DB9309581EBCE2480045D8D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9309571EBCE2480045D8D8 /* AppDelegate.swift */; };
 		DB93095A1EBCE2480045D8D8 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9309591EBCE2480045D8D8 /* QRScanViewController.swift */; };
@@ -23,11 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5898A0B057D70196555F1576 /* ItemParserProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemParserProtocol.swift; sourceTree = "<group>"; };
+		5898A1A3EF6FE91A183FFB2A /* JSONItemParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONItemParser.swift; sourceTree = "<group>"; };
 		5898A2C83CF2C08571BD8210 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		5898A4D768BC4511434F2C55 /* XMLItemParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLItemParser.swift; sourceTree = "<group>"; };
 		5898A5C931F685922FFA3958 /* ParsingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingResult.swift; sourceTree = "<group>"; };
 		5898AA5C17CECB191A05FED7 /* ParserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserService.swift; sourceTree = "<group>"; };
 		5898AF342C5836B1C380A0A5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		5898AFB5B451330EB6BFBC4A /* ItemParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemParsers.swift; sourceTree = "<group>"; };
 		DB9309541EBCE2480045D8D8 /* QRScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9309571EBCE2480045D8D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9309591EBCE2480045D8D8 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
@@ -57,9 +61,19 @@
 			children = (
 				DB9309691EBCE2DF0045D8D8 /* Models */,
 				5898AA5C17CECB191A05FED7 /* ParserService.swift */,
-				5898AFB5B451330EB6BFBC4A /* ItemParsers.swift */,
+				5898AE78AA48984E1671DC5D /* Parsers */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		5898AE78AA48984E1671DC5D /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				5898A0B057D70196555F1576 /* ItemParserProtocol.swift */,
+				5898A1A3EF6FE91A183FFB2A /* JSONItemParser.swift */,
+				5898A4D768BC4511434F2C55 /* XMLItemParser.swift */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		5898AF6966D5235595D3A466 /* Util */ = {
@@ -218,8 +232,10 @@
 				5898AE1F38AD6383883C1FDA /* Item.swift in Sources */,
 				5898AA07E17BCECE7CADB91F /* ParserService.swift in Sources */,
 				5898A8C2CC0DB81200E94377 /* ParsingResult.swift in Sources */,
-				5898ADCB27F3FC54B6D52781 /* ItemParsers.swift in Sources */,
 				5898AAB66DCF24606D0A644A /* Errors.swift in Sources */,
+				5898A8C62AEA707999BE26ED /* ItemParserProtocol.swift in Sources */,
+				5898A664C7BFCF9C13E69324 /* JSONItemParser.swift in Sources */,
+				5898A8F2015BAC16031D3E1E /* XMLItemParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

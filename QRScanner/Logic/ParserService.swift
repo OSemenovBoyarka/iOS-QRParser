@@ -23,7 +23,7 @@ class ParserService {
 
     private let parsingQueue = DispatchQueue.global(qos: .userInitiated)
 
-    private let parsers : [ItemParser] = [JsonItemParser()];
+    private let parsers : [ItemParser] = [JSONItemParser(), XMLItemParser()];
 
     func parse(code: String) {
         parsingQueue.async {
@@ -39,9 +39,14 @@ class ParserService {
     private func parse(code: String, usingParsers: [ItemParser]){
         print("Parsing: \(code) ")
         var parsedItems : [Item]?
+        //try all parsers until one succeeds
         for parser in self.parsers {
             do {
                 parsedItems = try parser.parse(input: code)
+                //we've parsed our items = nothing to do here more
+                if (parsedItems!.isEmpty == false) {
+                    break;
+                }
             } catch {
                 print("Parser \(parser)) failed with error: \(error)")
             }

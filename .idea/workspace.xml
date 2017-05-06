@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23f1a725-f5a2-48d5-ab65-dd3c4217693d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QRScanner/BillDetailsTableViewController.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QRScanner/Logic/Parsers/JSONItemParser.swift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift" afterPath="$PROJECT_DIR$/QRScanner/Logic/Parsers/ItemParserProtocol.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/QRScanner.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/QRScanner/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Item.swift" afterPath="$PROJECT_DIR$/QRScanner/Item.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift" afterPath="$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/BillDetailsTableViewController.swift" afterPath="$PROJECT_DIR$/QRScanner/BillDetailsTableViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/Logic/ParserService.swift" afterPath="$PROJECT_DIR$/QRScanner/Logic/ParserService.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QRScanner/QRScanViewController.swift" afterPath="$PROJECT_DIR$/QRScanner/QRScanViewController.swift" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,24 +21,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_74f57bda1e9ca1ecfbffd37968656d451585a0ed" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="QRScanViewController.swift" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QRScanViewController.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QRScanner/QRScanViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+            <state relative-caret-position="196">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding>
                 <element signature="e#156#168#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Foundation.NSDecimalNumber.swift" pinned="false" current-in-tab="false">
-        <entry file="mock:///Foundation.NSDecimalNumber.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="47" column="23" lean-forward="false" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -52,21 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParserService.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QRScanner/Logic/ParserService.swift">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="23" column="54" lean-forward="false" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BillDetailsTableViewController.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QRScanner/BillDetailsTableViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+            <state relative-caret-position="420">
+              <caret line="28" column="70" lean-forward="false" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -82,34 +63,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Foundation.swift" pinned="false" current-in-tab="false">
-        <entry file="mock:///Foundation.swift">
+      <file leaf-file-name="ItemParserProtocol.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QRScanner/Logic/Parsers/ItemParserProtocol.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="426" column="25" lean-forward="false" selection-start-line="426" selection-start-column="25" selection-end-line="426" selection-end-column="25" />
+            <state relative-caret-position="150">
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemParsers.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift">
+      <file leaf-file-name="JSONItemParser.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/QRScanner/Logic/Parsers/JSONItemParser.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <marker date="1494031157000" expanded="true" signature="241:1383" ph="{...}" />
-                <marker date="1494031157000" expanded="true" signature="290:889" ph="{...}" />
-              </folding>
+            <state relative-caret-position="147">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CapturePreviewView.swift" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/QRScanner/CapturePreviewView.swift">
+      <file leaf-file-name="Foundation.NSJSONSerialization.swift" pinned="false" current-in-tab="false">
+        <entry file="mock:///Foundation.NSJSONSerialization.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="37" column="53" lean-forward="false" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
+            <state relative-caret-position="267">
+              <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XMLItemParser.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="54" column="7" lean-forward="false" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParserService.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/QRScanner/Logic/ParserService.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NSXMLParser.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLParser.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1030">
+              <caret line="160" column="45" lean-forward="false" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -120,6 +128,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>segue</find>
+      <find>111</find>
+      <find>extra</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,13 +146,16 @@
         <option value="$PROJECT_DIR$/QRScanner/Logic/Parsers.swift" />
         <option value="$PROJECT_DIR$/QRScanner/Logic/ItemParser.swift" />
         <option value="$PROJECT_DIR$/QRScanner/ParsingResult.swift" />
-        <option value="$PROJECT_DIR$/QRScanner/Logic/ParserService.swift" />
         <option value="$PROJECT_DIR$/QRScanner/Util/Errors.swift" />
-        <option value="$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift" />
         <option value="$PROJECT_DIR$/QRScanner/Item.swift" />
         <option value="$PROJECT_DIR$/QRScanner/Util/NSDecimalNumber.swift" />
+        <option value="$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift" />
         <option value="$PROJECT_DIR$/QRScanner/BillDetailsTableViewController.swift" />
         <option value="$PROJECT_DIR$/QRScanner/QRScanViewController.swift" />
+        <option value="$PROJECT_DIR$/QRScanner/Logic/Parsers/ItemParserProtocol.swift" />
+        <option value="$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift" />
+        <option value="$PROJECT_DIR$/QRScanner/Logic/ParserService.swift" />
+        <option value="$PROJECT_DIR$/QRScanner/Logic/Parsers/JSONItemParser.swift" />
       </list>
     </option>
   </component>
@@ -239,6 +252,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Logic" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QRScanner" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QRScanner" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Logic" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Parsers" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -355,12 +390,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494011864173</updated>
-      <workItem from="1494011865620" duration="16475000" />
+      <workItem from="1494011865620" duration="27467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16475000" />
+    <option name="totallyTimeSpent" value="27467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -399,12 +434,42 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/QRScanner/QRScanViewController.swift</url>
-          <line>102</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift</url>
+          <line>74</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift</url>
+          <line>95</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift</url>
+          <line>93</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift</url>
+          <line>81</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift</url>
+          <line>39</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift</url>
+          <line>80</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/QRScanner/Logic/Parsers/JSONItemParser.swift</url>
+          <line>11</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -465,30 +530,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QRScanner/Logic/ParserService.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="23" column="54" lean-forward="false" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/QRScanner/Item.swift">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QRScanner/Logic/ItemParsers.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1494031157000" expanded="true" signature="241:1383" ph="{...}" />
-            <marker date="1494031157000" expanded="true" signature="290:889" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -500,21 +546,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLParser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1030">
+          <caret line="160" column="45" lean-forward="false" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/QRScanner/BillDetailsTableViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        <state relative-caret-position="420">
+          <caret line="28" column="70" lean-forward="false" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/QRScanner/QRScanViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="33" column="50" lean-forward="false" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+        <state relative-caret-position="196">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding>
             <element signature="e#156#168#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QRScanner/Logic/ParserService.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="59" lean-forward="false" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QRScanner/Logic/Parsers/ItemParserProtocol.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QRScanner/Logic/Parsers/XMLItemParser.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="54" column="7" lean-forward="false" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QRScanner/Logic/Parsers/JSONItemParser.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
