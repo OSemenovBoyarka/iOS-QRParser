@@ -16,3 +16,24 @@ class Item {
         self.id = id
     }
 }
+
+extension Item {
+
+    // Calculates total price for all items. Can be nil if price or quantity not set
+
+    func totalPrice() -> Decimal? {
+        //we should have both
+        guard var price = self.price else {
+            print("Can't calculate total price for \(self), price not set")
+            return nil
+        }
+
+        guard let quantity = self.quantity else {
+            print("Can't calculate total price for \(self), quantity not set")
+            return nil
+        }
+
+        price.multiply(by: Decimal(quantity))
+        return price
+    }
+}

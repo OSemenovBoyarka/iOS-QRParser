@@ -19,6 +19,7 @@
 		DB9309621EBCE2480045D8D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9309601EBCE2480045D8D8 /* LaunchScreen.storyboard */; };
 		DB93096C1EBD07E20045D8D8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB93096B1EBD07E20045D8D8 /* AVFoundation.framework */; };
 		DB93096F1EBD13870045D8D8 /* CapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB93096E1EBD13870045D8D8 /* CapturePreviewView.swift */; };
+		DB9309731EBD48F30045D8D8 /* BillDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9309721EBD48F30045D8D8 /* BillDetailsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DB9309631EBCE2480045D8D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB93096B1EBD07E20045D8D8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DB93096E1EBD13870045D8D8 /* CapturePreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreviewView.swift; sourceTree = "<group>"; };
+		DB9309721EBD48F30045D8D8 /* BillDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillDetailsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		5898AE5950D24D4FBD32105F /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				DB9309691EBCE2DF0045D8D8 /* Models */,
 				5898AA5C17CECB191A05FED7 /* ParserService.swift */,
 				5898AFB5B451330EB6BFBC4A /* ItemParsers.swift */,
 			);
@@ -88,14 +91,13 @@
 			isa = PBXGroup;
 			children = (
 				DB93096D1EBD13670045D8D8 /* Views */,
-				DB9309691EBCE2DF0045D8D8 /* Models */,
+				DB9309711EBD48910045D8D8 /* Controllers */,
+				5898AE5950D24D4FBD32105F /* Logic */,
 				DB9309571EBCE2480045D8D8 /* AppDelegate.swift */,
-				DB9309591EBCE2480045D8D8 /* QRScanViewController.swift */,
 				DB93095B1EBCE2480045D8D8 /* Main.storyboard */,
 				DB93095E1EBCE2480045D8D8 /* Assets.xcassets */,
 				DB9309601EBCE2480045D8D8 /* LaunchScreen.storyboard */,
 				DB9309631EBCE2480045D8D8 /* Info.plist */,
-				5898AE5950D24D4FBD32105F /* Logic */,
 				5898AF6966D5235595D3A466 /* Util */,
 			);
 			path = QRScanner;
@@ -108,6 +110,7 @@
 				5898A5C931F685922FFA3958 /* ParsingResult.swift */,
 			);
 			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		DB93096A1EBD07E20045D8D8 /* Frameworks */ = {
@@ -124,6 +127,15 @@
 				DB93096E1EBD13870045D8D8 /* CapturePreviewView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		DB9309711EBD48910045D8D8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB9309591EBCE2480045D8D8 /* QRScanViewController.swift */,
+				DB9309721EBD48F30045D8D8 /* BillDetailsTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB93096F1EBD13870045D8D8 /* CapturePreviewView.swift in Sources */,
+				DB9309731EBD48F30045D8D8 /* BillDetailsTableViewController.swift in Sources */,
 				DB93095A1EBCE2480045D8D8 /* QRScanViewController.swift in Sources */,
 				DB9309581EBCE2480045D8D8 /* AppDelegate.swift in Sources */,
 				5898AE1F38AD6383883C1FDA /* Item.swift in Sources */,

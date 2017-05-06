@@ -14,7 +14,7 @@ class QRScanViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var videoPreviewView: CapturePreviewView!
 
-    var qrFrameView: UIView!
+    let qrFrameView: UIView = UIView()
 
     let parserService = ParserService.shared
 
@@ -24,16 +24,18 @@ class QRScanViewController: UIViewController {
     fileprivate let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
     fileprivate let greetingText = "Please, scan QR code in bill to begin"
 
+    fileprivate var parsedItems: [Item] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initQrFrameView()
         initCaptureSession()
+        //we don't want navigation bar here at all
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
         //TODO handle camera permissions
-        messageLabel.text = greetingText
         videoPreviewView.previewLayer.session = captureSession
-
-        initQrFrameView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,7 @@ class QRScanViewController: UIViewController {
         captureSession.startRunning()
         parserService.delegate = self
         startCodeScanning()
+        setInitialUIState()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -78,12 +81,30 @@ class QRScanViewController: UIViewController {
     }
 
     private func initQrFrameView() {
-        qrFrameView = UIView()
         qrFrameView.layer.borderColor = UIColor.green.cgColor
         qrFrameView.layer.borderWidth = 2
         view.addSubview(qrFrameView)
         view.bringSubview(toFront: qrFrameView)
     }
+
+    fileprivate func setInitialUIState() {
+        messageLabel.text = greetingText
+        //hide frame
+        qrFrameView.frame = CGRect.zero
+    }
+
+}
+
+// MARK : segue control
+extension QRScanViewController {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showBillDetails"){
+            (segue.destination as! BillDetailsTableViewController).items = self.parsedItems;
+        }
+    }
+
+
 
 }
 
@@ -94,9 +115,7 @@ extension QRScanViewController : AVCaptureMetadataOutputObjectsDelegate {
         print("didOutPutMetadataObjects: \(metadataObjects)")
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
-            messageLabel.text = greetingText
-            //hide frame
-            qrFrameView.frame = CGRect.zero
+            setInitialUIState()
             return
         }
 
@@ -116,13 +135,12 @@ extension QRScanViewController : AVCaptureMetadataOutputObjectsDelegate {
 extension QRScanViewController : ParserServiceDelegate {
 
     func didFinishParsing(result: ParsingResult) {
-        startCodeScanning()
-
         if (result.success) {
-            //FIXME - move to next vc with display items
-            messageLabel.text = "Parsed: \(result.items!)"
+            parsedItems = result.items!
+            self.performSegue(withIdentifier: "showBillDetails", sender: self)
         } else {
             messageLabel.text = "Can't understand that QR code, try another one."
+            startCodeScanning()
         }
 
     }

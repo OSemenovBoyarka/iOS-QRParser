@@ -24,7 +24,7 @@ class JsonItemParser : ItemParser {
             let item = Item(id: key)
 
             guard let itemData = parsedDictionary[key] as? [String: Any] else {
-                print("Unknown item: \(parsedDictionary[key]), skipping")
+                print("Unknown item: \(String(describing: parsedDictionary[key])), skipping")
                 continue
             }
 
