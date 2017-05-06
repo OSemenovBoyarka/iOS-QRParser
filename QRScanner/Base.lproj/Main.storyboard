@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,9 +66,9 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4UG-Fh-m0G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="billItem" textLabel="vhY-MY-ZLa" detailTextLabel="8NT-3W-KvA" style="IBUITableViewCellStyleValue1" id="TMJ-36-fjO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="bill_item" textLabel="vhY-MY-ZLa" detailTextLabel="8NT-3W-KvA" style="IBUITableViewCellStyleValue1" id="TMJ-36-fjO" customClass="ItemTableViewCell" customModule="QRScanner" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TMJ-36-fjO" id="cTM-u2-JaP">
@@ -90,6 +91,33 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="total_item" id="aDj-j4-Jpi" customClass="TotalTableViewCell" customModule="QRScanner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aDj-j4-Jpi" id="I3J-vl-geI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL: 13.5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-xm-wde">
+                                            <rect key="frame" x="254.5" y="12" width="104.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" white="0.0" alpha="0.69046982020547942" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eFU-xm-wde" secondAttribute="trailing" constant="8" id="NwG-zW-ECX"/>
+                                        <constraint firstItem="eFU-xm-wde" firstAttribute="top" secondItem="I3J-vl-geI" secondAttribute="topMargin" constant="4" id="ch4-5a-WO6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eFU-xm-wde" secondAttribute="bottom" constant="4" id="fFP-4h-leg"/>
+                                        <constraint firstItem="eFU-xm-wde" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I3J-vl-geI" secondAttribute="leadingMargin" constant="8" id="lC8-tH-5d0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <inset key="separatorInset" minX="2000" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="totalTextLabel" destination="eFU-xm-wde" id="ZFG-yL-4l2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

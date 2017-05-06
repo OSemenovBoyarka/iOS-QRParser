@@ -24,7 +24,7 @@ class QRScanViewController: UIViewController {
     private var captureSessionInitComplete: Bool = false
 
     fileprivate let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
-    fileprivate let greetingText = "Please, point camera on the bill, provided by waiter"
+    fileprivate let greetingText = "Please, point camera on the bill, provided by waiter, and prepare for magic 😼"
 
     fileprivate var parsedItems: [Item] = []
     fileprivate var lastScannedObject: AVMetadataMachineReadableCodeObject?
@@ -108,7 +108,12 @@ class QRScanViewController: UIViewController {
                 self.initCaptureSession()
             })
             alert.addAction(UIAlertAction(title: "Settings", style: .default) { action in
-                UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!)
+                let settingsUrl = URL(string:UIApplicationOpenSettingsURLString)!
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(settingsUrl)
+                } else {
+                    UIApplication.shared.openURL(settingsUrl)
+                }
             })
             self.present(alert, animated: true)
         }
@@ -210,7 +215,7 @@ extension QRScanViewController : ParserServiceDelegate {
     func didStartParsing(code: String){
         //avoid a lot of duplicated callbacks
         pauseCodeScanning()
-        show(message: "Parsing code...", style: .normal)
+        show(message: "Parsing code... 🙈🙈🙈", style: .normal)
     }
 }
 

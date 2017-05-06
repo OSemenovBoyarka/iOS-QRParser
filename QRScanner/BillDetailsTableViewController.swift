@@ -19,47 +19,11 @@ class BillDetailsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Your bill"
+        self.title = "Bar of Clones"
+        self.tableView.tableFooterView = UIView()
     }
 
-
-
-
-    // MARK: tableview delegate and data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "billItem", for: indexPath)
-        let item = items[indexPath.row]
-
-        cell.textLabel!.text = item.name;
-
-        let priceStr: String
-        if let price = item.price {
-            priceStr = String(describing: price)
-        } else {
-            priceStr = "??"
-        }
-
-        let quantityStr: String
-        if let quantity = item.quantity {
-            quantityStr = String(describing: quantity)
-        } else {
-            quantityStr = "??"
-        }
-
-        cell.detailTextLabel!.text = String(format: "%@ X %@", quantityStr, priceStr)
-
-        return cell
-    }
-
-    public override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    fileprivate func totalSum() -> Decimal {
         //calculate sum for order
         var total: Decimal = 0
         for item in items {
@@ -67,8 +31,77 @@ class BillDetailsTableViewController: UITableViewController {
                 total.add(itemTotal)
             }
         }
-        return String(format: "Total: %@", String(describing: total))
+        return total
     }
-
-
 }
+
+// MARK: tableview delegate and data source
+extension BillDetailsTableViewController {
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Your waiter is Boba Fett 🤖"
+    }
+   
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //extra row for total
+        return items.count+1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : UITableViewCell
+        if indexPath.row < items.endIndex {
+            //normal item cell
+            cell = tableView.dequeueReusableCell(withIdentifier: "bill_item", for: indexPath)
+            (cell as! ItemTableViewCell).decorate(with: items[indexPath.row])
+        } else {
+            //total price cell
+            cell = tableView.dequeueReusableCell(withIdentifier: "total_item", for: indexPath)
+            (cell as! TotalTableViewCell).decorate(with: totalSum())
+            cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, tableView.bounds.width);
+        }
+        return cell
+    }
+    
+}
+
+//MARK: custom tableview cells
+class ItemTableViewCell : UITableViewCell {
+    
+    func decorate(with item: Item){
+        
+        self.textLabel!.text = item.name;
+        
+        let priceStr: String
+        if let price = item.price {
+            priceStr = String(describing: price)
+        } else {
+            priceStr = "??"
+        }
+        
+        let quantityStr: String
+        if let quantity = item.quantity {
+            quantityStr = String(describing: quantity)
+        } else {
+            quantityStr = "??"
+        }
+        
+        self.detailTextLabel!.text = String(format: "%@ x %@", quantityStr, priceStr)
+    }
+}
+
+class TotalTableViewCell : UITableViewCell {
+    
+    @IBOutlet weak var totalTextLabel: UILabel!
+    
+    func decorate(with totalPrice: Decimal){
+       totalTextLabel.text = String(format:"TOTAL: %@", String(describing: totalPrice))
+    }
+}
+
+
+
+
