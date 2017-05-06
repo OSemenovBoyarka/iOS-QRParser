@@ -39,6 +39,8 @@ class ParserService {
                 DispatchQueue.main.async {
                     self.delegate?.didFinishParsing(result: ParsingResult(items: nil, error: error as NSError))
                 }
+                //we shouldn't try to parse this further
+                return
             }
 
             //actual parsing

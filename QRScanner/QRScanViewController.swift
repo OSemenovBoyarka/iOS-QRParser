@@ -21,8 +21,10 @@ class QRScanViewController: UIViewController {
     private let captureSession = AVCaptureSession()
     private let captureMetadataOutput = AVCaptureMetadataOutput()
 
+    private var captureSessionInitComplete: Bool = false
+
     fileprivate let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
-    fileprivate let greetingText = "Please, scan QR code in bill to begin"
+    fileprivate let greetingText = "Please, point camera on the bill, provided by waiter"
 
     fileprivate var parsedItems: [Item] = []
 
@@ -30,11 +32,12 @@ class QRScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initQrFrameView()
-        initCaptureSession()
         navigationController?.setNavigationBarHidden(true, animated: false)
 
-        //TODO handle camera permissions
         videoPreviewView.previewLayer.session = captureSession
+
+        // currently we need to track camera permissions, while app enters
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +48,10 @@ class QRScanViewController: UIViewController {
         setInitialUIState()
 
         navigationController?.setNavigationBarHidden(true, animated: true)
+
+        if (!captureSessionInitComplete){
+            self.initCaptureSession()
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,6 +59,11 @@ class QRScanViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    func willEnterForeground() {
+        if (!captureSessionInitComplete){
+            self.initCaptureSession()
+        }
+    }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -81,9 +93,21 @@ class QRScanViewController: UIViewController {
             captureSession.addInput(input)
             captureSession.addOutput(captureMetadataOutput)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
+            captureSessionInitComplete = true
         } catch {
             print(error)
-            //TODO show error to user
+            let alert = UIAlertController(
+                    title: "Camera error",
+                    message: "App can't work without camera access, please ensure it's working and you have provided camera permission in settings",
+                    preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "Retry", style: .cancel) { action in
+                self.initCaptureSession()
+            })
+            alert.addAction(UIAlertAction(title: "Settings", style: .default) { action in
+                UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!)
+            })
+            self.present(alert, animated: true)
         }
     }
 
@@ -95,9 +119,22 @@ class QRScanViewController: UIViewController {
     }
 
     fileprivate func setInitialUIState() {
-        messageLabel.text = greetingText
+        show(message: greetingText, style: .normal)
         //hide frame
         qrFrameView.frame = CGRect.zero
+    }
+
+    fileprivate func show(message: String, style: MessageStyle) {
+        messageLabel.text = message
+        switch style {
+            case .error:
+                messageLabel.backgroundColor = UIColor.red;
+                break;
+            case .normal:
+                messageLabel.backgroundColor = UIColor.black;
+                break;
+
+        }
     }
 
 }
@@ -145,8 +182,17 @@ extension QRScanViewController : ParserServiceDelegate {
         if (result.success) {
             parsedItems = result.items!
             self.performSegue(withIdentifier: "showBillDetails", sender: self)
+            setInitialUIState()
         } else {
-            messageLabel.text = "Can't understand that QR code, try another one."
+            let errorMessage: String
+            if (result.error?.isNetworkError() == true) {
+                errorMessage = "Can't download QR code content, please check your internet connection and try again"
+            } else {
+                errorMessage = "Can't understand that QR code, please try another one."
+            }
+            show(message: errorMessage, style: .error)
+
+            //scan for new codes
             startCodeScanning()
         }
 
@@ -155,8 +201,13 @@ extension QRScanViewController : ParserServiceDelegate {
     func didStartParsing(code: String){
         //avoid a lot of duplicated callbacks
         pauseCodeScanning()
-        messageLabel.text = "Parsing code..."
+        show(message: "Parsing code...", style: .normal)
     }
+}
+
+fileprivate enum MessageStyle {
+    case normal
+    case error
 }
 
 
