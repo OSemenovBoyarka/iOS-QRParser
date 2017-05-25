@@ -156,3 +156,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+# AppCode
+.idea
